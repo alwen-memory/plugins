@@ -1,0 +1,18 @@
+{
+  "name": "alwen",
+  "owner": {
+    "name": "Alwen",
+    "url": "https://github.com/alwen-memory"
+  },
+  "metadata": {
+    "description": "One memory for every AI you work with."
+  },
+  "plugins": [
+    {
+      "name": "alwen",
+      "source": "./plugins/alwen",
+      "description": "Your Alwen memory in Claude Code: your rules, notes and decisions, shared with every AI tool you use.",
+      "category": "productivity"
+    }
+  ]
+}

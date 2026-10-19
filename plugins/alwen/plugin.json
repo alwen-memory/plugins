@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "alwen",
+  "version": "0.1.0",
+  "description": "One memory for every AI you work with: your rules, notes and decisions, in a private GitHub repo that's yours.",
+  "author": {
+    "name": "Alwen"
+  },
+  "repository": "https://github.com/alwen-memory/plugins",
+  "license": "MIT",
+  "keywords": [
+    "memory",
+    "notes",
+    "rules",
+    "decisions",
+    "mcp"
+  ]
+}
