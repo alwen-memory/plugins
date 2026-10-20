@@ -34,4 +34,4 @@ The `alwen` MCP server in this plugin reads and writes it.
 If a call fails because Alwen isn't signed in, tell the person:
 - Claude Code: type `/mcp`, choose **alwen**, and click Allow on the Alwen page.
 - Codex: run `codex mcp login alwen`.
-- No vault yet: finish setting it up at https://alwen-web-knve6.ondigitalocean.app/app.
+- No vault yet: finish setting it up at https://alwen.ai/app.

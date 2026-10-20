@@ -1,0 +1,7 @@
+{
+  "description": "The Alwen mod: a /alwen pane and a line above the prompt showing what Alwen read and saved in this session",
+  "hooks": {},
+  "modules": [
+    "./register.js"
+  ]
+}
