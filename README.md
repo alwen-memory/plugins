@@ -45,7 +45,12 @@ codex plugin marketplace add alwen-memory/plugins
 Open the Plugins directory in the Codex app, choose **Alwen**, and install it. Codex
 opens the Alwen page in your browser; click Allow.
 
-## Claude, ChatGPT, Cursor, Grok Bot, Telegram, Slack, Discord
+## Cursor
+
+The plugin is in the Cursor Marketplace's review (`.cursor-plugin/marketplace.json` lists it).
+Until it's listed, use **Add to Cursor** on your Alwen dashboard.
+
+## Claude, ChatGPT, Grok Bot, Telegram, Slack, Discord
 
 Connect them from your Alwen dashboard: each one has its own page with the one step it
 takes.
@@ -55,11 +60,16 @@ takes.
 ```
 .claude-plugin/marketplace.json   Claude Code catalog
 .agents/plugins/marketplace.json  Codex catalog
+.cursor-plugin/marketplace.json   Cursor catalog
+server.json                       Alwen's entry in the official MCP Registry
+scripts/openai-package.mjs        builds the package for OpenAI's plugin directory
 plugins/alwen/
-  plugin.json                     plugin manifest (Agent Plugins standard: Codex, Cursor)
-  mcp.json                        the Alwen server, for Codex and Cursor
+  README.md, LICENSE              what the plugin does and sends; MIT
+  plugin.json                     plugin manifest (Agent Plugins standard: Codex, Cursor),
+                                  with OpenAI's listing and review test cases
+  mcp.json                        the Alwen server, for Codex and OpenAI
   .claude-plugin/plugin.json      plugin manifest and the Alwen server, for Claude Code
-  .cursor-plugin/plugin.json      plugin manifest for Cursor
+  .cursor-plugin/plugin.json      plugin manifest and the Alwen server, for Cursor
   skills/alwen-memory/SKILL.md    when to read and write your memory
   hooks/hooks.json                the Claude Code mod: points to hooks/register.js
   hooks/register.js               the /alwen pane, the line above the prompt, the notice

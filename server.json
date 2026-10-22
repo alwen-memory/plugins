@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.alwen/alwen",
+  "title": "Alwen",
+  "description": "One memory for every AI you work with: your rules, notes and decisions in your own Git repo.",
+  "version": "0.4.0",
+  "websiteUrl": "https://alwen.ai",
+  "icons": [
+    {
+      "src": "https://alwen.ai/logo-512.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.alwen.ai/mcp"
+    }
+  ]
+}

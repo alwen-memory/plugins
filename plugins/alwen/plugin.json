@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "alwen",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "One memory for every AI you work with: your rules, notes and decisions, in a private GitHub repo that's yours.",
   "author": {
     "name": "Alwen"
@@ -14,5 +14,104 @@
     "rules",
     "decisions",
     "mcp"
-  ]
+  ],
+  "homepage": "https://alwen.ai",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Alwen",
+        "shortDescription": "One memory for every AI",
+        "longDescription": "Alwen is one memory for every AI you work with. Your rules, notes and decisions live as plain markdown in a private Git repository that's yours, and every tool you connect (ChatGPT, Codex, Claude, Cursor and more) reads it first and writes back to it.\n\nWith Alwen turned on, ChatGPT and Codex can check your rules before they start, search your notes before answering about your work, people and projects, and save decisions and lasting facts back for your other tools. Every write is a commit signed with the tool that made it, and Alwen never deletes notes.\n\nYou need an Alwen account; sign up free at alwen.ai with Google or GitHub.",
+        "developerName": "Alwen",
+        "category": "Productivity",
+        "capabilities": [
+          "Check your rules",
+          "Search your notes",
+          "Read a note",
+          "Save facts and decisions",
+          "Suggest rules for your approval"
+        ],
+        "websiteURL": "https://alwen.ai",
+        "supportURL": "https://alwen.ai/support",
+        "privacyPolicyURL": "https://alwen.ai/privacy",
+        "termsOfServiceURL": "https://alwen.ai/terms",
+        "defaultPrompt": [
+          "What are my rules? Check Alwen.",
+          "What did I decide about this project? Look it up in my memory.",
+          "Remember this decision for my other tools."
+        ],
+        "brandColor": "#1C4A3D",
+        "composerIcon": "./assets/icon.svg",
+        "logo": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Reads the person's rules before starting",
+              "prompt": "Check my Alwen rules before we start: how should you write for me?",
+              "tools_triggered": [
+                "get_rules"
+              ],
+              "expected_behavior": "Calls get_rules and lists the rules from rules/global.md: British spelling, lead with the answer, short paragraphs, never contact clients or spend money without asking."
+            },
+            {
+              "description": "Finds a past decision in the memory",
+              "prompt": "What did I decide about pricing for the Acme redesign? Check my memory.",
+              "tools_triggered": [
+                "search",
+                "read_note"
+              ],
+              "expected_behavior": "Searches, opens the journal note 'Acme pricing: fixed price', and answers: a fixed price of EUR 12,000 in two milestones, chosen over an hourly rate. Names the note it used."
+            },
+            {
+              "description": "Finds a person and how they like to work",
+              "prompt": "Who is my contact at Acme, and how does she like updates?",
+              "tools_triggered": [
+                "search",
+                "read_note"
+              ],
+              "expected_behavior": "Searches, opens the note on Maya Chen, and answers: Maya Chen, head of marketing at Acme, wants a short written summary every Friday, no calls before 10:00."
+            },
+            {
+              "description": "Saves a lasting fact",
+              "prompt": "Remember that the Acme launch moved to 3 December.",
+              "tools_triggered": [
+                "remember"
+              ],
+              "expected_behavior": "Calls remember with one self-contained note about the Acme launch moving to 3 December, and confirms it was saved to the memory's inbox."
+            },
+            {
+              "description": "Logs a decision with its reason and the alternative",
+              "prompt": "We just decided to build the Acme site in Webflow instead of WordPress, because Acme's team will edit it themselves. Log that decision.",
+              "tools_triggered": [
+                "log_decision"
+              ],
+              "expected_behavior": "Calls log_decision with the decision (Webflow for the Acme site), the reason (Acme's team edits it themselves) and WordPress as the alternative considered, then confirms it is in the journal."
+            }
+          ],
+          "negative": [
+            {
+              "description": "General knowledge has nothing to do with the person's memory, so Alwen should not be called.",
+              "prompt": "What's the capital of Portugal?",
+              "expected_behavior": "Answers Lisbon without calling any Alwen tool."
+            },
+            {
+              "description": "Alwen searches only the person's own notes, not the web.",
+              "prompt": "Search the web for today's news about electric cars.",
+              "expected_behavior": "Does not call Alwen's search; uses web search if available, or says it can't browse."
+            },
+            {
+              "description": "Alwen has no delete tool and never deletes notes.",
+              "prompt": "Delete my note about Acme from Alwen.",
+              "expected_behavior": "Calls no Alwen tool to delete anything; explains that Alwen never deletes notes and that the person can remove or archive the note in their own vault."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "First release: check your rules, search and read your notes, and save facts, decisions and suggested rules to your Alwen memory from ChatGPT and Codex."
+      }
+    }
+  }
 }

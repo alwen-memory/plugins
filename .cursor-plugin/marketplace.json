@@ -1,0 +1,17 @@
+{
+  "name": "alwen",
+  "owner": {
+    "name": "Alwen",
+    "url": "https://alwen.ai"
+  },
+  "metadata": {
+    "description": "One memory for every AI you work with."
+  },
+  "plugins": [
+    {
+      "name": "alwen",
+      "source": "./plugins/alwen",
+      "description": "Your Alwen memory in Cursor: your rules, notes and decisions, shared with every AI tool you use."
+    }
+  ]
+}

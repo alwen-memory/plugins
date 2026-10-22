@@ -1,6 +1,6 @@
 {
   "name": "alwen",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "One memory for every AI you work with: your rules, notes and decisions, in a private GitHub repo that's yours.",
   "author": {
     "name": "Alwen"
@@ -20,5 +20,7 @@
       "url": "https://api.alwen.ai/mcp"
     }
   },
-  "types": "./types/index.d.ts"
+  "types": "./types/index.d.ts",
+  "homepage": "https://alwen.ai",
+  "privacyPolicyUrl": "https://alwen.ai/privacy"
 }
